@@ -529,11 +529,47 @@
   </head>
   <body>
     <!-- Overlay Tap untuk Mulai -->
-    <div id="tapOverlay" style="position:fixed;inset:0;background:rgba(255,255,255,0.96);display:flex;align-items:center;justify-content:center;z-index:20000;">
-      <div style="text-align:center;color:#333">
-        <div style="font-family:'Great Vibes',cursive;font-size:2rem;color:#ff6f8c;margin-bottom:8px;">Selamat Datang</div>
-        <div style="font-size:0.95rem;margin-bottom:14px;color:#666">Sentuh/klik untuk memulai dan mengaktifkan musik</div>
-        <button id="startBtn" style="padding:10px 18px;border:none;border-radius:999px;background:linear-gradient(135deg,#ff6f8c,#ff99aa);color:#fff;font-weight:600;box-shadow:0 8px 18px rgba(255,111,140,0.4);cursor:pointer;">Mulai</button>
+    <div
+      id="tapOverlay"
+      style="
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.96);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 20000;
+      "
+    >
+      <div style="text-align: center; color: #333">
+        <div
+          style="
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #ff6f8c;
+            margin-bottom: 8px;
+          "
+        >
+          Selamat Datang
+        </div>
+        <div style="font-size: 0.95rem; margin-bottom: 14px; color: #666">
+          klik untuk membuka
+        </div>
+        <button
+          id="startBtn"
+          style="
+            padding: 10px 18px;
+            border: none;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff6f8c, #ff99aa);
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 8px 18px rgba(255, 111, 140, 0.4);
+            cursor: pointer;
+          "
+        >
+          Buka
+        </button>
       </div>
     </div>
     <!-- Musik -->
@@ -785,7 +821,9 @@
         if (overlay) overlay.style.display = "none";
       };
       const unlockAudio = (e) => {
-        try { e && e.preventDefault && e.preventDefault(); } catch (_) {}
+        try {
+          e && e.preventDefault && e.preventDefault();
+        } catch (_) {}
         audio.muted = false;
         audio.volume = 0.7;
         audio.play().catch(() => {});
@@ -795,11 +833,24 @@
         window.removeEventListener("touchend", unlockAudio, true);
         window.removeEventListener("keydown", unlockAudio, true);
       };
-      if (startBtn) startBtn.addEventListener("click", unlockAudio, { once: true });
-      window.addEventListener("pointerdown", unlockAudio, { once: true, capture: true });
-      window.addEventListener("mousedown", unlockAudio, { once: true, capture: true });
-      window.addEventListener("touchend", unlockAudio, { once: true, capture: true });
-      window.addEventListener("keydown", unlockAudio, { once: true, capture: true });
+      if (startBtn)
+        startBtn.addEventListener("click", unlockAudio, { once: true });
+      window.addEventListener("pointerdown", unlockAudio, {
+        once: true,
+        capture: true,
+      });
+      window.addEventListener("mousedown", unlockAudio, {
+        once: true,
+        capture: true,
+      });
+      window.addEventListener("touchend", unlockAudio, {
+        once: true,
+        capture: true,
+      });
+      window.addEventListener("keydown", unlockAudio, {
+        once: true,
+        capture: true,
+      });
 
       // As an extra measure, when tab becomes visible, retry play
       document.addEventListener("visibilitychange", () => {
