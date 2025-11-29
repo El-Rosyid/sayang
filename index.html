@@ -528,6 +528,14 @@
     </style>
   </head>
   <body>
+    <!-- Overlay Tap untuk Mulai -->
+    <div id="tapOverlay" style="position:fixed;inset:0;background:rgba(255,255,255,0.96);display:flex;align-items:center;justify-content:center;z-index:20000;">
+      <div style="text-align:center;color:#333">
+        <div style="font-family:'Great Vibes',cursive;font-size:2rem;color:#ff6f8c;margin-bottom:8px;">Selamat Datang</div>
+        <div style="font-size:0.95rem;margin-bottom:14px;color:#666">Sentuh/klik untuk memulai dan mengaktifkan musik</div>
+        <button id="startBtn" style="padding:10px 18px;border:none;border-radius:999px;background:linear-gradient(135deg,#ff6f8c,#ff99aa);color:#fff;font-weight:600;box-shadow:0 8px 18px rgba(255,111,140,0.4);cursor:pointer;">Mulai</button>
+      </div>
+    </div>
     <!-- Musik -->
     <audio id="backgroundMusic" loop preload="auto" autoplay muted playsinline>
       <source
@@ -771,19 +779,27 @@
       }
 
       // On first user interaction, unmute and ensure playback
-      const unlockAudio = () => {
+      const overlay = document.getElementById("tapOverlay");
+      const startBtn = document.getElementById("startBtn");
+      const removeOverlay = () => {
+        if (overlay) overlay.style.display = "none";
+      };
+      const unlockAudio = (e) => {
+        try { e && e.preventDefault && e.preventDefault(); } catch (_) {}
         audio.muted = false;
         audio.volume = 0.7;
         audio.play().catch(() => {});
-        window.removeEventListener("click", unlockAudio);
-        window.removeEventListener("touchstart", unlockAudio);
-        window.removeEventListener("keydown", unlockAudio);
-        window.removeEventListener("scroll", unlockAudio);
+        removeOverlay();
+        window.removeEventListener("pointerdown", unlockAudio, true);
+        window.removeEventListener("mousedown", unlockAudio, true);
+        window.removeEventListener("touchend", unlockAudio, true);
+        window.removeEventListener("keydown", unlockAudio, true);
       };
-      window.addEventListener("click", unlockAudio);
-      window.addEventListener("touchstart", unlockAudio, { passive: true });
-      window.addEventListener("keydown", unlockAudio);
-      window.addEventListener("scroll", unlockAudio, { passive: true });
+      if (startBtn) startBtn.addEventListener("click", unlockAudio, { once: true });
+      window.addEventListener("pointerdown", unlockAudio, { once: true, capture: true });
+      window.addEventListener("mousedown", unlockAudio, { once: true, capture: true });
+      window.addEventListener("touchend", unlockAudio, { once: true, capture: true });
+      window.addEventListener("keydown", unlockAudio, { once: true, capture: true });
 
       // As an extra measure, when tab becomes visible, retry play
       document.addEventListener("visibilitychange", () => {
