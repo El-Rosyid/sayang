@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selamat Ulang Tahun, Sayang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #ff99aa;
+        --primary-dark: #ff6f8c;
+        --bg: #fff6f8;
+        --text-main: #333333;
+        --text-soft: #777777;
+        --card-bg: #ffffff;
+        --accent: #ffd1dc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(
+          circle at top,
+          #ffe1ec 0,
+          #fff6f8 40%,
+          #ffffff 100%
+        );
+        color: var(--text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      section {
+        padding: 80px 16px;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        background: radial-gradient(circle, #ffd1dc 0, transparent 70%);
+        top: -100px;
+        right: -100px;
+        opacity: 0.6;
+        z-index: -1;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, #c8f5e8 0, transparent 70%);
+        bottom: -80px;
+        left: -80px;
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      .hero-inner {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .hero-illustration {
+        width: 220px;
+        height: 220px;
+        background: linear-gradient(145deg, #ffd1dc, #ffe9f0);
+        border-radius: 50%;
+        margin: 0 auto 24px;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(255, 153, 170, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      /* Kalau kamu punya gambar ilustrasi sendiri, tinggal ganti div ini jadi <img src="..." /> */
+
+      .hero-title {
+        font-family: "Great Vibes", cursive;
+        font-size: 3rem;
+        color: var(--primary-dark);
+        margin-bottom: 8px;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        color: var(--text-soft);
+        margin-bottom: 24px;
+      }
+
+      .hero-name {
+        font-weight: 600;
+        color: var(--primary-dark);
+      }
+
+      .hero-btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border-radius: 999px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        box-shadow: 0 10px 20px rgba(255, 111, 140, 0.4);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 30px rgba(255, 111, 140, 0.5);
+        opacity: 0.95;
+      }
+
+      .hero-scroll {
+        margin-top: 36px;
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .scroll-indicator {
+        width: 20px;
+        height: 32px;
+        border-radius: 999px;
+        border: 2px solid var(--primary-dark);
+        position: relative;
+      }
+
+      .scroll-indicator::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--primary-dark);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 6px;
+        animation: scrollDot 1.4s infinite;
+      }
+
+      @keyframes scrollDot {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, 0);
+        }
+        40% {
+          opacity: 1;
+          transform: translate(-50%, 6px);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, 14px);
+        }
+      }
+
+      /* SECTION GENERAL */
+      .section-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 10px;
+        color: var(--primary-dark);
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+        text-align: center;
+        color: var(--text-soft);
+        max-width: 520px;
+        margin: 0 auto 40px;
+      }
+
+      /* PESAN UTAMA */
+      .main-message {
+        background: #fff;
+        position: relative;
+      }
+
+      .message-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .message-card {
+        background: var(--card-bg);
+        border-radius: 24px;
+        padding: 24px 24px 28px;
+        box-shadow: 0 18px 40px rgba(255, 153, 170, 0.18);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .message-card::before {
+        content: "“";
+        position: absolute;
+        font-family: "Georgia", serif;
+        font-size: 80px;
+        color: #ffe1ec;
+        top: -20px;
+        left: 16px;
+        opacity: 0.8;
+      }
+
+      .message-card p {
+        font-size: 0.95rem;
+        color: #444;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .message-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .message-sign {
+        margin-top: 18px;
+        font-size: 0.9rem;
+        color: var(--text-soft);
+        text-align: right;
+      }
+
+      .side-illustration {
+        width: 100%;
+        height: 400px;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #ffe1ec, #c8f5e8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(200, 245, 232, 0.4);
+      }
+
+      .side-illustration img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 28px;
+      }
+
+      /* KENANGAN */
+      .memories-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .memory-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 14px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.03);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 160px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .memory-tag {
+        font-size: 0.75rem;
+        color: var(--primary-dark);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+      }
+
+      .memory-text {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .memory-icon {
+        font-size: 1.6rem;
+        position: absolute;
+        right: 12px;
+        bottom: 10px;
+        opacity: 0.35;
+      }
+
+      /* HARAPAN */
+      .wishes-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .wish-card {
+        background: var(--card-bg);
+        border-radius: 22px;
+        padding: 18px 16px 20px;
+        box-shadow: 0 12px 26px rgba(255, 153, 170, 0.15);
+        border: 1px solid #ffe1ec;
+      }
+
+      .wish-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin-bottom: 4px;
+      }
+
+      .wish-text {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      /* KEJUTAN */
+      .surprise {
+        background: linear-gradient(135deg, #ffe1ec, #c8f5e8);
+      }
+
+      .surprise-card {
+        max-width: 520px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 26px;
+        padding: 26px 20px 24px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+        text-align: center;
+      }
+
+      .surprise-btn {
+        margin-top: 12px;
+        padding: 10px 24px;
+        border-radius: 999px;
+        border: none;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+        box-shadow: 0 12px 24px rgba(255, 111, 140, 0.5);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+
+      .surprise-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(255, 111, 140, 0.55);
+        opacity: 0.96;
+      }
+
+      .surprise-content {
+        margin-top: 14px;
+        font-size: 0.95rem;
+        color: #444;
+        display: none;
+        animation: fadeIn 0.4s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* PENUTUP */
+      .closing {
+        background: #fff;
+      }
+
+      .closing-card {
+        max-width: 620px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 32px 20px 20px;
+        border-radius: 24px;
+        background: var(--bg);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.06);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .closing-card::before,
+      .closing-card::after {
+        content: "";
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffd1dc 0, transparent 68%);
+        opacity: 0.6;
+      }
+
+      .closing-card::before {
+        top: -60px;
+        left: -40px;
+      }
+
+      .closing-card::after {
+        bottom: -70px;
+        right: -50px;
+      }
+
+      .closing-text {
+        position: relative;
+        z-index: 1;
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 12px;
+      }
+
+      .closing-sign {
+        position: relative;
+        z-index: 1;
+        font-family: "Great Vibes", cursive;
+        font-size: 1.8rem;
+        color: var(--primary-dark);
+        margin-top: 10px;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 18px 16px 26px;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-soft);
+      }
+
+      /* ANIMASI HATI JATUH */
+      @keyframes fall {
+        0% {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 1;
+        }
+      }
+
+      .heart-rain {
+        position: fixed;
+        top: -50px;
+        font-size: 24px;
+        animation: fall 6s linear infinite;
+        opacity: 0.6;
+        z-index: 9999;
+        pointer-events: none;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        section {
+          padding: 60px 16px;
+        }
+
+        .hero-title {
+          font-size: 2.4rem;
+        }
+
+        .message-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .side-illustration {
+          order: -1;
+        }
+
+        .memories-grid,
+        .wishes-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Musik -->
+    <audio id="backgroundMusic" loop preload="auto" autoplay muted playsinline>
+      <source
+        src="aset/Sempurna (Acoustic Version) - Killercats.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- Kontrol Musik -->
+    <div
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50px;
+        padding: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      "
+    >
+      <button
+        id="playBtn"
+        style="
+          background: var(--primary-dark);
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          font-size: 16px;
+        "
+      >
+        🎵
+      </button>
+    </div>
+
+    <!-- Hati Berjatuhan -->
+    <div class="heart-rain" style="left: 10%">❤️</div>
+    <div class="heart-rain" style="left: 30%; animation-delay: 1s">❤️</div>
+    <div class="heart-rain" style="left: 50%; animation-delay: 2s">❤️</div>
+    <div class="heart-rain" style="left: 70%; animation-delay: 3s">❤️</div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-illustration">
+          <img
+            src="aset/ChatGPT Image Apr 2, 2025, 09_10_31 PM.png"
+            alt="Ilustrasi Ulang Tahun"
+          />
+        </div>
+        <h1 class="hero-title">Selamat Ulang Tahun, Sayang</h1>
+        <p class="hero-subtitle">
+          Terima kasih sudah hadir dan bertahan bersamaku. Hari ini bukan cuma
+          tentang bertambahnya usiamu, tapi juga tentang betapa berharganya kamu
+          di hidupku.
+        </p>
+        <p class="hero-name">
+          Untuk kamu, yang selalu aku jaga di dalam doa 💐
+        </p>
+        <br />
+        <a href="#pesan" class="hero-btn">Buka Pesan dariku</a>
+
+        <div class="hero-scroll">
+          <span>Scroll ke bawah</span>
+          <div class="scroll-indicator"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESAN UTAMA -->
+    <section id="pesan" class="main-message">
+      <div class="container">
+        <h2 class="section-title">Dari hatiku untuk kamu</h2>
+        <p class="section-subtitle">
+          Ini bukan sekadar ucapan ulang tahun. Ini adalah cara sederhana aku
+          meminta maaf, berterima kasih, dan mendoakanmu.
+        </p>
+
+        <div class="message-wrapper">
+          <div class="message-card">
+            <p>
+              Selamat ulang tahun ke-22, sayang. Di hari spesialmu ini, aku
+              ingin kamu tahu satu hal yang selalu terasa jelas bagiku:
+              kehadiranmu adalah anugerah yang membuat hidupku jauh lebih
+              berarti. Kamu adalah alasan banyak hal terasa lebih ringan, lebih
+              indah, dan lebih layak diperjuangkan.
+            </p>
+            <p>
+              Aku juga ingin meminta maaf jika selama ini ada kata atau sikapku
+              yang pernah melukai perasaanmu. Aku tidak pernah berniat membuatmu
+              kecewa. Aku sedang belajar menjadi versi terbaik dari diriku —
+              versi yang pantas untuk mendampingi seseorang sebaik kamu.
+            </p>
+            <p>
+              Di ulang tahunmu ini, aku berharap kamu selalu dikelilingi
+              kebahagiaan, kesehatan, dan ketenangan. Semoga semua wishlist satu
+              per satu tercapai, dan semoga aku bisa menjadi bagian dari
+              perjalananmu menuju hal-hal indah itu.
+            </p>
+            <p>
+              Terima kasih sudah bertahan, memahami, dan tetap memilihku. Aku
+              mencintaimu, dengan cara yang sederhana tapi sungguh-sungguh.
+            </p>
+            <div class="message-sign">— Mu’izzul</div>
+          </div>
+
+          <div class="side-illustration">
+            <img
+              src="aset/ChatGPT Image Apr 2, 2025, 09_21_51 PM.png"
+              alt="kenangan"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KENANGAN KITA -->
+
+    <!-- HARAPAN UNTUK KITA -->
+    <section id="harapan">
+      <div class="container">
+        <h2 class="section-title">Harapan untuk kamu dan kita</h2>
+        <p class="section-subtitle">
+          Aku nggak tahu apa rencana Tuhan ke depan, tapi aku selalu berharap
+          namaku tetap ada dalam cerita bahagiamu.
+        </p>
+
+        <div class="wishes-cards">
+          <div class="wish-card">
+            <div class="wish-label">Untuk kamu</div>
+            <p class="wish-text">
+              Semoga kamu selalu diberi kesehatan, ketenangan hati, dan
+              lingkungan yang mendukung semua mimpimu.
+            </p>
+          </div>
+          <div class="wish-card">
+            <div class="wish-label">Untuk aku</div>
+            <p class="wish-text">
+              Semoga aku bisa terus belajar jadi pribadi yang lebih sabar,
+              dewasa, dan layak kamu banggakan.
+            </p>
+          </div>
+          <div class="wish-card">
+            <div class="wish-label">Untuk kita</div>
+            <p class="wish-text">
+              Semoga kita bisa sama-sama tumbuh, saling memahami, dan tetap
+              memilih satu sama lain, meski banyak hal tak selalu mudah.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEJUTAN KECIL -->
+    <section id="kejutan" class="surprise">
+      <div class="container">
+        <div class="surprise-card">
+          <h2 class="section-title" style="margin-bottom: 6px">
+            Ada sedikit kejutan
+          </h2>
+          <p class="section-subtitle" style="margin-bottom: 12px">
+            Bukan hadiah mahal, cuma satu kalimat yang selalu ingin aku
+            ulang-ulang ke kamu.
+          </p>
+          <button class="surprise-btn" id="surpriseBtn">Klik di sini</button>
+          <div class="surprise-content" id="surpriseContent">
+            <img
+              src="aset/WhatsApp Image 2025-11-29 at 22.22.04_9f0f7d49.jpg"
+              alt="kejutan"
+            />
+            <p>
+              Kalau suatu hari kamu capek dan ragu dengan banyak hal, ingat ini:
+              <strong
+                >kamu nggak pernah sendirian, selama kamu masih mengizinkan aku
+                untuk tetap di sisimu.</strong
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENUTUP -->
+    <section id="penutup" class="closing">
+      <div class="container">
+        <div class="closing-card">
+          <p class="closing-text">
+            Terima kasih sudah membaca sampai akhir. Aku tahu aku tidak selalu
+            sempurna dalam bersikap, tapi aku selalu sungguh-sungguh dalam
+            menyayangimu.
+          </p>
+          <p class="closing-text">
+            Semoga hari ini jadi salah satu hari yang manis dalam hidupmu.
+            Selamat ulang tahun sekali lagi, sayang. Semoga Tuhan selalu
+            menjagamu dengan cara terbaik-Nya.
+          </p>
+          <div class="closing-sign">Mu’izzul</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>Dibuat dengan cinta oleh Mu’izzul • <span id="year"></span></footer>
+
+    <script>
+      // Audio control - Autoplay-friendly
+      const audio = document.getElementById("backgroundMusic");
+      const playBtn = document.getElementById("playBtn");
+      let isPlaying = false;
+
+      // Set audio properties
+      audio.volume = 0.7;
+      audio.loop = true;
+      // Ensure attributes exist for stricter browsers (iOS/Safari)
+      audio.setAttribute("muted", "");
+      audio.setAttribute("autoplay", "");
+      audio.setAttribute("playsinline", "");
+      audio.muted = true; // start muted to satisfy autoplay policies
+
+      // Try autoplay immediately (will work on most browsers if muted)
+      const tryPlay = () =>
+        audio
+          .play()
+          .then(() => {
+            console.debug("Audio autoplay started (muted)");
+          })
+          .catch((err) => {
+            console.debug("Autoplay prevented:", err?.message || err);
+          });
+
+      if (
+        document.readyState === "complete" ||
+        document.readyState === "interactive"
+      ) {
+        tryPlay();
+      } else {
+        window.addEventListener("DOMContentLoaded", tryPlay, { once: true });
+      }
+
+      // On first user interaction, unmute and ensure playback
+      const unlockAudio = () => {
+        audio.muted = false;
+        audio.volume = 0.7;
+        audio.play().catch(() => {});
+        window.removeEventListener("click", unlockAudio);
+        window.removeEventListener("touchstart", unlockAudio);
+        window.removeEventListener("keydown", unlockAudio);
+        window.removeEventListener("scroll", unlockAudio);
+      };
+      window.addEventListener("click", unlockAudio);
+      window.addEventListener("touchstart", unlockAudio, { passive: true });
+      window.addEventListener("keydown", unlockAudio);
+      window.addEventListener("scroll", unlockAudio, { passive: true });
+
+      // As an extra measure, when tab becomes visible, retry play
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden && !isPlaying) {
+          audio.play().catch(() => {});
+        }
+      });
+
+      // Toggle musik saat tombol diklik
+      playBtn.addEventListener("click", () => {
+        if (isPlaying) {
+          audio.pause();
+        } else {
+          audio.muted = false;
+          audio.volume = 0.7;
+          audio.play().catch((err) => {
+            console.log("Could not play audio:", err);
+            alert("Tidak bisa memutar musik. Pastikan file audio tersedia.");
+          });
+        }
+      });
+
+      // Event listeners untuk memantau audio state
+      audio.addEventListener("play", () => {
+        isPlaying = true;
+        playBtn.textContent = "🔊";
+      });
+
+      audio.addEventListener("pause", () => {
+        isPlaying = false;
+        playBtn.textContent = "🎵";
+      });
+
+      // Tahun otomatis
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Tombol kejutan
+      const surpriseBtn = document.getElementById("surpriseBtn");
+      const surpriseContent = document.getElementById("surpriseContent");
+      if (surpriseBtn && surpriseContent) {
+        let opened = false;
+        surpriseBtn.addEventListener("click", () => {
+          opened = !opened;
+          if (opened) {
+            surpriseContent.style.display = "block";
+            surpriseBtn.textContent = "Simpan di hati";
+          } else {
+            surpriseContent.style.display = "none";
+            surpriseBtn.textContent = "Klik di sini";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
